@@ -7,14 +7,21 @@ coloque nas sessões indicadas*/
 :root {
     /* Inserta la variable de los otros colores inspeccionando el exemplo de figma */
     /*Se esforce para trabalhar com variáveis, é uma dica profissional valiosa*/
-    --cor-de-fundo: #F5F5F5;
-    --cor-de-link: #000;
-    --color-de-texto: #464646;
+    --cor-de-fundo: #222;
+    --col-de-fondo-secon: #333;
+    --cor-de-link: #fff;
+    --color-de-texto: #939393;
+    --color-de-titulo: #ff8b00;
+    --fondo-boton: #ff8b00;
 }
-
+html{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
 body {
     box-sizing: border-box;
     background-color: var(--cor-de-fundo);
+    color: var(--color-de-texto);
     font-family: 'Raleway';
     margin: 0;
     padding: 0;
@@ -32,10 +39,13 @@ a {
     text-decoration: none;
     color: var(--cor-de-link);
 }
+h1,h2,h3,h4,h5,h6{
+    color: var(--color-de-titulo);
+}
 
 .tudo {
     display: flex;
-    gap: 32px;
+    gap: 5rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -90,11 +100,17 @@ section.title {
     justify-content: space-between;
     gap: 2rem;
 }
-.title__bio {
+.title__white {
+    font-size: clamp(1.5rem, 4vw,3rem);
+    color: white;
+}
+.title__bio{
     font-size: clamp(1.5rem, 4vw,3.5rem);
     margin-bottom:1.5rem;
+    margin-top: 0;
 }
 .title__subsection {
+    font-size: clamp(1rem, 4vw,1.5rem);
     margin-bottom: 1.5rem;
     font-weight: normal;
 }
@@ -104,20 +120,31 @@ section.title {
     padding-left: 0;
     align-items: center;
 }
+.title__network__item a{
+    border: 2px solid var(--fondo-boton);
+    background-color: var(--fondo-boton);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.title__network__item a:hover{
+    background-color: transparent;
+    border: 2px solid var(--fondo-boton);
+}
 .title__profile {
-    max-width: 368px;
-    max-height: 368px;
+    border-radius: 100%;
+    max-width: 300px;
+    max-height: 300px;
     width: 100%;
     height: 100%;
-    border-radius: 100%;
     object-fit: cover;
+    background-color: blanchedalmond;
 }
 /*Sección About*/
 
 section.about {
     padding: 4rem 1rem;
     width: 100%;
-    background-color: #EAF2FD;
+    background-color: #333;
 }
 .about__container {
     max-width: 1200px;
@@ -141,16 +168,21 @@ section.skills {
     width: 100%;
 }
 .skills__title {
-    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-size: clamp(1.2rem, 4vw, 3rem);
     font-weight: bold;
     text-align: center;
     margin-top: 0;
 }
 .skills__line {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(50%,11rem),1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(50%,13rem),1fr));
     align-items: center;
     gap: 1rem;
+}
+.skills__box {
+    background-color: var(--col-de-fondo-secon);
+    border-radius: 5px;
+    height: 174px;
 }
 .skills__box ul{ 
     margin: 0;
@@ -163,24 +195,143 @@ section.skills {
     padding: 0;
 
 }
-.skills__box {
-    background-color: white;
-    border-radius: 5px;
-    height: 174px;
+.skills__icon {
+    color: var(--color-de-titulo);
+    font-size: clamp(1.2rem, 4vw, 3rem);
+}
+.skills__name{
+    color: white;
+    font-size: clamp(1rem, 4vw, 1.3rem);
 }
 
 /*Sección Hobbies*/
 
-section.hobbies {}
-
+section.hobbies {
+    max-width: 1200px;
+    width: 100%;
+}
+.hobbies__title {
+    font-size: clamp(1.2rem, 4vw, 3rem);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+}
+.hobbies__line {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(50%,11rem),1fr));
+    align-items: center;
+    gap: 1rem; 
+}
+.hobbies__box {
+    background-color: var(--col-de-fondo-secon);
+    border-radius: 5px;
+    height: 174px;
+}
+.hobbies__box ul{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 100%;
+    padding: 0;
+}
+.hobbies__icon{
+    color: var(--color-de-titulo);
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+}
+.hobbies__name{
+    color: white;
+    font-size: clamp(1rem, 4vw, 1.3rem); 
+}
 /* Experiencia Académica*/
 
-section.academic {}
-
+section.academic {
+    max-width: 1200px;
+    width: 100%;
+}
+.academic__title {
+    font-size: clamp(1.2rem, 4vw, 3rem);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+}
+.academic__courses{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(50%,20rem),1fr));
+    align-items: center;
+    gap: 1rem; 
+}
+.academic__courses__box {
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem;
+}
+.academic__courses__list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 100%;
+    padding: 0;
+}
+.academic__courses__item__title h4{
+    margin: 0;
+    color: black;
+    text-align: center;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);;
+}
+.academic__courses__item__img img {
+    height: 200px;
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+}
 /* experiencia*/
 
-section.experience {}
+section.experience {
+    max-width: 1200px;
+    width: 100%;
 
+}
+.experience__section__title {
+    font-size: clamp(1.2rem, 4vw, 3rem);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0; 
+}
+.experience__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(50%,20rem),1fr));
+    align-items: center;
+    gap: 1rem; 
+}
+.experience__img {
+    width: 100%;
+}
+.experiencia__botao--repo {
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-color: black;
+}
+.experiencia__botao--repo:hover{
+    box-sizing: border-box;
+    background-color: white;
+    color: #000;
+    border: 2px solid black;
+}
+.experience__botao--demo {
+    box-sizing: border-box;
+    border-color: #4caf50;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
 /*Contacto*/
 
 section.formcontato {}

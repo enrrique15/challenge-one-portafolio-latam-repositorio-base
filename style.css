@@ -45,7 +45,7 @@ h1,h2,h3,h4,h5,h6{
 
 .tudo {
     display: flex;
-    gap: 5rem;
+    gap: clamp(1rem,5vw,3rem);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -72,7 +72,7 @@ section.menu {
     justify-content: space-between;
     max-width: 1200px;
     width: 100%;
-    padding: 2rem;
+    padding: 2rem 1rem;
 }
 .menu__header{
     display: flex;
@@ -84,9 +84,11 @@ section.menu {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    padding: 0;
 }
 .menu__list__item__contato {
     font-weight: bold;
+    font-size: clamp(0.8rem, 2.5vw,1.2rem);;
 }
 
 /*Sección Title*/
@@ -116,7 +118,7 @@ section.title {
 }
 .title__network {
     display: flex;
-    gap: 2rem;
+    gap: 1em;
     padding-left: 0;
     align-items: center;
 }
@@ -125,6 +127,8 @@ section.title {
     background-color: var(--fondo-boton);
     padding: 5px 10px;
     border-radius: 5px;
+    display: flex;
+    gap: 5px;
 }
 .title__network__item a:hover{
     background-color: transparent;
@@ -142,7 +146,8 @@ section.title {
 /*Sección About*/
 
 section.about {
-    padding: 4rem 1rem;
+    box-sizing: border-box;
+    padding: 4rem 2rem;
     width: 100%;
     background-color: #333;
 }
@@ -175,7 +180,7 @@ section.skills {
 }
 .skills__line {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(50%,13rem),1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(40%,13rem),1fr));
     align-items: center;
     gap: 1rem;
 }
@@ -197,11 +202,11 @@ section.skills {
 }
 .skills__icon {
     color: var(--color-de-titulo);
-    font-size: clamp(1.2rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 3rem);
 }
 .skills__name{
     color: white;
-    font-size: clamp(1rem, 4vw, 1.3rem);
+    font-size: clamp(1.2rem, 4vw, 1.3rem);
 }
 
 /*Sección Hobbies*/
@@ -218,7 +223,7 @@ section.hobbies {
 }
 .hobbies__line {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(50%,11rem),1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(40%,11rem),1fr));
     align-items: center;
     gap: 1rem; 
 }
@@ -239,11 +244,11 @@ section.hobbies {
 }
 .hobbies__icon{
     color: var(--color-de-titulo);
-    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 4vw, 2.5rem);
 }
 .hobbies__name{
     color: white;
-    font-size: clamp(1rem, 4vw, 1.3rem); 
+    font-size: clamp(1.2rem, 4vw, 1.3rem); 
 }
 /* Experiencia Académica*/
 
@@ -304,13 +309,31 @@ section.experience {
     margin-top: 0; 
 }
 .experience__container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(50%,20rem),1fr));
+    display: flex;
+    flex-direction: column; 
+}
+.experience__box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
     align-items: center;
-    gap: 1rem; 
+    gap: 2rem;
+}
+.experience__box-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
 }
 .experience__img {
+    max-width: 600px;
     width: 100%;
+}
+.experience__text {
+    color: white;
+    margin-bottom: 2rem;
 }
 .experiencia__botao--repo {
     box-sizing: border-box;
@@ -319,36 +342,117 @@ section.experience {
     padding: 10px 20px;
     border-radius: 5px;
     border-color: black;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    border: 2px solid var(--fondo-boton);
 }
 .experiencia__botao--repo:hover{
     box-sizing: border-box;
     background-color: white;
     color: #000;
     border: 2px solid black;
+    border: 2px solid var(--fondo-boton);
 }
 .experience__botao--demo {
+    margin-top: 1rem;
     box-sizing: border-box;
-    border-color: #4caf50;
+    background-color: var(--fondo-boton);
+    color: white;
     padding: 10px 20px;
     border-radius: 5px;
+    border: 2px solid var(--fondo-boton);
+}
+.experience__botao--demo:hover {
+    background-color: var(--cor-de-fundo);
+    border: 2px solid var(--fondo-boton);
 }
 /*Contacto*/
 
-section.formcontato {}
-
+section.formcontato {
+    box-sizing: border-box;
+    padding: 4rem 2rem;
+    width: 100%;
+    background-color: var(--col-de-fondo-secon);
+}
+.formcontato__contacto {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.formcontato__text {
+    max-width: 600px;
+    width: 100%;
+}
+.formcontato__title {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+.formcontato__subtext {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+.formcontato__subtext {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.formcontato__form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.formcontato__input ,.formcontato__textarea{
+    box-sizing: border-box;
+    display: block;
+    padding: 20px 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+.formcontato__botao {
+    background-color: #ff8b00;
+    color: white;
+    border-radius: 5px;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: clamp(1.2rem, 4vw, 1.2rem);;
+}
+.formcontato__botao:hover {
+    background-color: var(--col-de-fondo-secon);
+    border: 2px solid var(--fondo-boton);
+    cursor: pointer;
+}
 /*footeer*/
 
-section.footer {}
+section.footer {
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    text-align: center;
+    width:100%;
+}
 
 /* Vamos a desafiarnos trabajando con responsividad?
 Utiliza las referencias de los breakpoints @media abajo */
 
-
+/*Escritorio*/
+@media (max-width:1200px) {
+    section{
+        box-sizing: border-box;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
 /*Tablet*/
-@media (min-width: 768px) {
+@media (max-width: 820px) {
 
     /* Menú */
-
+    .menu__list__item {
+        display: none;
+    }
     /*title*/
 
     /*Skills*/
@@ -358,18 +462,49 @@ Utiliza las referencias de los breakpoints @media abajo */
     /*Formación Académica*/
 
     /*Experiencia Profesional*/
-
+    .experience__img{
+        max-width: 100%;
+    }
+    .experience__box ,.experience__box-reverse{
+        flex-direction: column;
+        gap: 0;
+    }
+    .experience__info-container {
+        margin-bottom: 3rem;
+    }
+    /*Contacto*/
+    .formcontato--esquerda {
+        display: none;
+    }
+    .formcontato__text {
+        max-width: 100%;
+    }
 }
 
 /*Mobile*/
-@media (min-width: 425px) {
-
+@media (max-width: 425px) {
+    section{
+        box-sizing: border-box;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
     /*Menu*/
-
+    section.menu {
+        padding: 1rem;
+    }
     /*Titulo*/
-
+    .title__div{
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+    .title__network {
+        flex-wrap: wrap;
+    }
     /*Sección sobre mi*/
-
+    section.about {
+        padding: 1rem;
+    }
     /*Skills*/
 
     /*Hobbies*/
@@ -379,7 +514,9 @@ Utiliza las referencias de los breakpoints @media abajo */
     /*Experiencia Profesional*/
 
     /*Contacto*/
-
+    section.formcontato {
+        padding:1rem;
+    }
     /*Footer*/
 
 }
